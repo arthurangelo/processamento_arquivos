@@ -5,9 +5,7 @@ import processadora.base.ObterDadosDefault;
 import processadora.base.Template;
 import processadora.cliente.ClienteTemplate;
 import processadora.cliente.EnviarDadosCliente;
-import processadora.cliente.ProcessarDadosCliente;
 import processadora.transacao.EnviarDadosTransacao;
-import processadora.transacao.ProcessarDadosTransacao;
 import processadora.transacao.TransacaoTemplate;
 
 public enum FactoryTemplates {
@@ -15,12 +13,12 @@ public enum FactoryTemplates {
     CLIENTE("Cliente.txt"
             ,System.getProperty("user.dir") + "/resources/Cliente.txt"
             ,new ClienteTemplate(new ObterDadosDefault(new LeituraTxt())
-            ,new ProcessarDadosCliente(), new EnviarDadosCliente())),
+            ,new EnviarDadosCliente())),
 
     TRANSACAO("Transacao.txt"
             ,System.getProperty("user.dir") + "/resources/Transacao.txt"
             , new TransacaoTemplate(new ObterDadosDefault(new LeituraTxt())
-            , new  ProcessarDadosTransacao(), new EnviarDadosTransacao()));
+            , new EnviarDadosTransacao()));
 
     private String arquivo;
     private String fonte;
